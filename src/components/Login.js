@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Header from './Header'
 
 function Login() {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   return (
     <>
     <Header/>
