@@ -43,7 +43,7 @@ function Register() {
             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-base"/>
           </div>
           <div className="flex items-baseline justify-between">
-              <button onClick={register} className="px-6 py-2 mt-4 text-white bg-base/90 rounded-lg hover:bg-base">Register</button>
+              <button className="px-6 py-2 mt-4 text-white bg-base/90 rounded-lg hover:bg-base">Register</button>
           </div>
         </form>
     </div>
