@@ -10,7 +10,7 @@ function Register() {
   return (
     <>
     <Header/>
-    <div className="flex justify-center">
+    <div className="flex items-center justify-center h-screen">
     <div className="px-8 py-6 mt-4 text-left bg-white shadow-2xl">
         <h3 className="text-2xl font-bold text-base text-center">Register for an account</h3>
         <form>

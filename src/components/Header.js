@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-base p-6 fixed w-full z-10 top-0">
+    <nav className="flex items-center justify-between flex-wrap bg-base p-4 fixed w-full z-10 top-0">
 		<div className="flex items-center flex-shrink-0 text-white mr-6">
 			<NavLink to="/" className="text-white no-underline hover:text-white hover:no-underline">
-				<span className="text-3xl pl-2"><i className="em em-grinning"></i>IReport</span>
+				<span className="text-3xl pl-2">IReport</span>
 			</NavLink>
 		</div>
 
