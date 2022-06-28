@@ -5,7 +5,7 @@ function CreateReport({onAddReport}) {
   const [title, setTitle] = useState("")
   const [location, setLocation] = useState("")
   const [comment, setComment] = useState("")
-  const [type, setType] = useState("")
+  const [type, setType] = useState(1)
 
   function handleFormSubmit(e) {
     e.preventDefault();
