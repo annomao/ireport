@@ -1,10 +1,10 @@
 import React from 'react'
 import ReportCard from './ReportCard'
 
-function DisplayReports({reports}) {
-  const displayedReports = data.map((report) =>{
+function DisplayReports({reports,onUpdateReport,onDeleteReport}) {
+  const displayedReports = reports.map((report) =>{
     return(
-      <ReportCard key={report.id} report={report} />
+      <ReportCard key={report.id} report={report} onUpdateReport={onUpdateReport} onDeleteReport={onDeleteReport}/>
     )
   })
   return (
