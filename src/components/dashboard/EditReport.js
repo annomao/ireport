@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function EditReport({report, onUpdateMessage}) {
+function EditReport({report, onUpdateReport, isEditing,setIsEditing}) {
   const [location, setLocation] = useState(report.location);
   const [comment, setComment] = useState(report.comment);
 
@@ -18,18 +18,21 @@ function EditReport({report, onUpdateMessage}) {
       }),
     })
       .then((r) => r.json())
-      .then((updatedRecord) => onUpdateMessage(updatedRecord));
+      .then((updatedRecord) => onUpdateReport(updatedRecord));
+      setIsEditing(() => isEditing = !isEditing)
   }
 
   return (
     <div className="rounded overflow-hidden shadow-lg">
       <form onSubmit={handleFormSubmit}>
+      <label className="block text-base">Location</label>
       <input
         type="text"
         name="location"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
       />
+      <label className="block text-base">Comment</label>
       <input
         type="text"
         name="comment"
