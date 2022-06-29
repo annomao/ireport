@@ -8,7 +8,7 @@ function Login() {
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState("")
   const navigate = useNavigate()
-  const {SetAuth} = useContext(AuthContext)
+  const {setAuth} = useContext(AuthContext)
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -34,7 +34,7 @@ function Login() {
       })
       .then(data => {
         localStorage.setItem("user", JSON.stringify(data))
-        SetAuth(data)
+        setAuth(data)
         navigate("/dashboard")
         setEmail(""); setPassword("")
       })
