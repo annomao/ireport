@@ -29,7 +29,7 @@ function Login() {
           setEmail(""); setPassword("")
         }
         else{
-          r.json()
+          return r.json()
         }
       })
       .then(data => {
