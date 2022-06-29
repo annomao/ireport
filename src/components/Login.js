@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from './context/AuthProvider'
 import Header from './Header'
 
 function Login() {
@@ -7,6 +8,7 @@ function Login() {
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState("")
   const navigate = useNavigate()
+  const {SetAuth} = useContext(AuthContext)
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -32,6 +34,7 @@ function Login() {
       })
       .then(data => {
         localStorage.setItem("user", JSON.stringify(data))
+        SetAuth(data)
         navigate("/dashboard")
         setEmail(""); setPassword("")
       })
