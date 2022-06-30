@@ -49,7 +49,6 @@ function DashBoard() {
   return (
     <>
     <DashHeader logout={handleLogOut}/>
-    <div className="my-10"></div>
     <div className="container mx-auto my-5 p-5">
       <div className="md:flex no-wrap md:-mx-2 ">
 
@@ -69,7 +68,7 @@ function DashBoard() {
                 name="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-base"
+                className="px-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-base"
               />
             </div>
             <div className="text-gray-700">

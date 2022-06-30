@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
+import EditUser from './EditUser'
 
 function UserProfile({user}) {
+  const [isEditingUser, setIsEditingUser] = useState(false)
   return (
     <>
     <div className="w-full md:w-3/12 md:mx-2 shadow-sm shadow-cyan-500/50 ">
@@ -22,9 +24,13 @@ function UserProfile({user}) {
           {user.email}
         </h3>
       </div>
-      <button
+      <button onClick={() => setIsEditingUser((isEditingUser) => !isEditingUser)}
         className="block w-full text-base text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
         Edit Profile</button>
+    <div className="mb-8"></div>
+    {
+      isEditingUser ? <EditUser user={user} isEditingUser={isEditingUser} setIsEditingUser={setIsEditingUser} /> :null
+    }
     </div>
     </>
   )
