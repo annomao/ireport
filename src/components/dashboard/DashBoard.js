@@ -8,6 +8,7 @@ import DashHeader from './DashHeader'
 function DashBoard() {
   const [reports, setReports] = useState([])
   const [isAddingReport, setIsAddingReport] = useState(false)
+  const [search, setSearch] = useState("")
 
   const { auth, setAuth } = useContext(AuthContext)
 
@@ -16,6 +17,10 @@ function DashBoard() {
     .then(r => r.json())
     .then(fetchedReports => setReports(fetchedReports))
   },[])
+
+  const searchReports = reports.filter((report)=>{
+    return report.title.toLowerCase().includes(search.toLowerCase())
+  })
 
   function handleLogOut(){
     localStorage.removeItem("user")
@@ -56,11 +61,19 @@ function DashBoard() {
           {isAddingReport ? <CreateReport onAddReport={handleAddReport} isAddingReport={isAddingReport} setIsAddingReport={setIsAddingReport}/> :
           <>
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-              <button className="px-3 py-1 mt-4 text-white bg-base/90 rounded-lg hover:bg-base"
+              <button className="px-3 py-1 mt-4 mr-4 text-white bg-base/90 rounded-lg hover:bg-base"
                 onClick={()=> setIsAddingReport((isAddingReport) => !isAddingReport)}>Create Report</button>
+              <label className="block text-base">Search</label>
+              <input
+                type="text"
+                name="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-base"
+              />
             </div>
             <div className="text-gray-700">
-              <DisplayReports reports={reports} onUpdateReport={handleUpdateReport} onDeleteReport={handleDeleteReport}/>
+              <DisplayReports reports={searchReports} onUpdateReport={handleUpdateReport} onDeleteReport={handleDeleteReport}/>
             </div>
           </>    
         } 
