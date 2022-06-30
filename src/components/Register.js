@@ -13,6 +13,10 @@ function Register() {
   function handleFormSubmit(e) {
     e.preventDefault();
 
+    if(!name || !username || !email || !password){
+      setErrors("Please fill all fields")
+    } else{
+
     fetch(`https://ireport-api.herokuapp.com/signup`, {
       method: "POST",
       headers: {
@@ -36,6 +40,7 @@ function Register() {
           navigate("/login")
         }
       })
+    }
   }
 
   return (

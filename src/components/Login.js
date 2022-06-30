@@ -17,6 +17,10 @@ function Login() {
   function handleFormSubmit(e) {
     e.preventDefault();
 
+    if(!email || !password){
+      setErrors("Please fill all fields")
+    }else{
+
     fetch(`https://ireport-api.herokuapp.com/login`, {
       method: "POST",
       headers: {
@@ -43,6 +47,7 @@ function Login() {
         setEmail("")
         setPassword("")
       })
+    }
   }
 
   return (
