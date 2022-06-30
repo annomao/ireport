@@ -41,8 +41,13 @@ function DashBoard() {
     setReports(updatedReports)
   }
 
-  function handleDeleteReport(deletedReportId){
-    const updatedReports = reports.filter( report => report.id !== deletedReportId )
+  function handleDeleteReport(deletedReport){
+    const updatedReports = reports.map(report =>{
+      if(deletedReport.id === report.id){
+        return deletedReport
+      }
+      return report
+    })
     setReports(updatedReports)
   }
 

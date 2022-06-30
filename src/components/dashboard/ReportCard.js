@@ -9,11 +9,18 @@ function ReportCard({report,onUpdateReport,onDeleteReport}) {
   const { auth } = useContext(AuthContext)
 
   function handleDeleteReport(){
-    fetch(`https://ireport-api.herokuapp.com/reports/${report.id}`,{
-      method:"DELETE"
+    fetch(`https://ireport-api.herokuapp.com//reports/status/${report.id}`,{
+      method:"PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        status: "Withdrawn"
+      }),
     })
-    onDeleteReport(report.id)
-  }
+      .then((r) => r.json())
+      .then((updatedRecord) => onDeleteReport(updatedRecord));
+    }
 
   return (
     <>
@@ -37,12 +44,15 @@ function ReportCard({report,onUpdateReport,onDeleteReport}) {
       </div>
       {auth ? <>
       <div className="px-6 pt-4 pb-2">
+        {
+        report.status !== "Withdrawn" ? <>
         <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2"><MdOutlineEditNote/></span>
         </button>
         <button onClick={handleDeleteReport}>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-semibold text-gray-700 mr-2 mb-2"><MdDeleteOutline/></span>
-        </button>
+        </button></>: null
+        }
       </div>
       </> : null}
     </div>
