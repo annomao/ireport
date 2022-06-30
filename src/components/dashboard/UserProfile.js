@@ -4,8 +4,8 @@ import { FaRegUserCircle } from 'react-icons/fa'
 function UserProfile({user}) {
   return (
     <>
-    <div className="w-full md:w-3/12 md:mx-2 shadow-md shadow-cyan-500/50 ">
-      <div className="bg-white p-3 border-t-2 border-b-2 md:border-b-0 border-base text-center">
+    <div className="w-full md:w-3/12 md:mx-2 shadow-sm shadow-cyan-500/50 ">
+      <div className="bg-white p-3 border-t-2 border-b-2 md:border-b-0 border-cyan-500/50 text-center">
         <div className="text-8xl text-gray-300 flex justify-center">
           <FaRegUserCircle/>
         </div>

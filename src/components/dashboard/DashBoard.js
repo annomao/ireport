@@ -44,7 +44,7 @@ function DashBoard() {
 
         
         <div class="w-full md:w-9/12 mx-2 h-64">
-        <div class="bg-white p-3 shadow-md rounded-sm">
+        <div class="bg-white p-3 shadow-md shadow-cyan-500/50 rounded-sm">
           {isAddingReport ? <CreateReport onAddReport={handleAddReport} isAddingReport={isAddingReport} setIsAddingReport={setIsAddingReport}/> :
           <>
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
