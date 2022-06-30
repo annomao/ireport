@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider'
+import {useUserStatus} from '../hooks/useUserStatus'
 import Header from './Header'
 
 function Login() {
+  
+  useUserStatus()
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState("")
