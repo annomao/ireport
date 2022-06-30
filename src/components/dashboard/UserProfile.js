@@ -23,7 +23,7 @@ function UserProfile({user}) {
         </h3>
       </div>
       <button
-        class="block w-full text-base text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+        className="block w-full text-base text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
         Edit Profile</button>
     </div>
     </>

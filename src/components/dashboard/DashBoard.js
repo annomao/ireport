@@ -3,6 +3,7 @@ import DisplayReports from './DisplayReports'
 import CreateReport from './CreateReport'
 import { AuthContext } from '../../context/AuthProvider'
 import UserProfile from './UserProfile'
+import DashHeader from './DashHeader'
 
 function DashBoard() {
   const [reports, setReports] = useState([])
@@ -37,14 +38,16 @@ function DashBoard() {
 
   return (
     <>
-    <div class="container mx-auto my-5 p-5">
-      <div class="md:flex no-wrap md:-mx-2 ">
+    <DashHeader/>
+    <div className="my-10"></div>
+    <div className="container mx-auto my-5 p-5">
+      <div className="md:flex no-wrap md:-mx-2 ">
 
         <UserProfile user={auth}/>
 
         
-        <div class="w-full md:w-9/12 mx-2 h-64">
-        <div class="bg-white p-3 shadow-md shadow-cyan-500/50 rounded-sm">
+        <div className="w-full md:w-9/12 mx-2 h-64">
+        <div className="bg-white p-3 shadow-md shadow-cyan-500/50 rounded-sm">
           {isAddingReport ? <CreateReport onAddReport={handleAddReport} isAddingReport={isAddingReport} setIsAddingReport={setIsAddingReport}/> :
           <>
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
