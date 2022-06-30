@@ -17,7 +17,6 @@ function useUserStatus() {
     }
     else {
       setAuth(null)
-      navigate("/")
     }
   }
   

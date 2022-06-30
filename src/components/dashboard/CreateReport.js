@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
+import { AuthContext } from '../../context/AuthProvider'
 
 function CreateReport({onAddReport}) {
 
@@ -6,6 +7,8 @@ function CreateReport({onAddReport}) {
   const [location, setLocation] = useState("")
   const [comment, setComment] = useState("")
   const [type, setType] = useState(1)
+
+  const { auth } = useContext(AuthContext)
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -19,7 +22,8 @@ function CreateReport({onAddReport}) {
         title: title,
         location: location,
         comment: comment,
-        type_id: type
+        type_id: type,
+        user: auth.id
       }),
     })
       .then((r) => r.json())
