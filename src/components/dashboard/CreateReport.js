@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { AuthContext } from '../../context/AuthProvider'
 
-function CreateReport({onAddReport}) {
+function CreateReport({onAddReport, isAddingReport, setIsAddingReport}) {
 
   const [title, setTitle] = useState("")
   const [location, setLocation] = useState("")
@@ -27,7 +27,10 @@ function CreateReport({onAddReport}) {
       }),
     })
       .then((r) => r.json())
-      .then((addedRecord) => onAddReport(addedRecord));
+      .then((addedRecord) => {
+        onAddReport(addedRecord)
+        setIsAddingReport(() => !isAddingReport)
+      });
   }
 
   return (
@@ -52,7 +55,7 @@ function CreateReport({onAddReport}) {
           </div>
           <div className="mt-4">
             <label className="block text-base">Comment</label>
-            <input type="text" placeholder="Add a brief description..."
+            <textarea rows={5} placeholder="Add a brief description..."
             value={comment}
             onChange={e =>setComment(e.target.value)}
             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-base"/>

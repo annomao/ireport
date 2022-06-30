@@ -17,14 +17,14 @@ function ReportCard({report,onUpdateReport,onDeleteReport}) {
     <>
     <div className="rounded overflow-hidden shadow-lg">
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">title</div>
-        <div className="font-bold text-xl mb-2">type</div>
+        <div className="font-bold text-xl mb-2">{report.title}</div>
+        <div className="font-bold text-xl mb-2">{report.type}</div>
         {
           isEditing ? <EditReport report={report} isEditing={isEditing} setIsEditing={setIsEditing} onUpdateReport={onUpdateReport}/> :
           <>
-          <div className="font-semibold text-xl mb-2">location</div>
+          <div className="font-semibold text-xl mb-2">{report.location}</div>
           <p className="text-gray-700 text-base">
-            comment
+            {report.comment}
           </p>
         </>
         }
