@@ -9,13 +9,18 @@ function DashBoard() {
   const [reports, setReports] = useState([])
   const [isAddingReport, setIsAddingReport] = useState(false)
 
-  const { auth } = useContext(AuthContext)
+  const { auth, setAuth } = useContext(AuthContext)
 
   useEffect(()=>{
     fetch(`https://ireport-api.herokuapp.com/user/reports/${auth.id}`)
     .then(r => r.json())
     .then(fetchedReports => setReports(fetchedReports))
   },[])
+
+  function handleLogOut(){
+    localStorage.removeItem("user")
+    setAuth(null)
+  }
 
   function handleAddReport(addedReport){
     setReports([...reports, addedReport])
@@ -38,7 +43,7 @@ function DashBoard() {
 
   return (
     <>
-    <DashHeader/>
+    <DashHeader logout={handleLogOut}/>
     <div className="my-10"></div>
     <div className="container mx-auto my-5 p-5">
       <div className="md:flex no-wrap md:-mx-2 ">
