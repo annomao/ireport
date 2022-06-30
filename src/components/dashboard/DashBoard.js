@@ -33,11 +33,13 @@ function DashBoard() {
 
   return (
     <div>
-      <button className="px-6 py-2 mt-4 text-white bg-base/90 rounded-lg hover:bg-base"
-      onClick={()=> setIsAddingReport((isAddingReport) => !isAddingReport)}
-      >Create Report</button>
       {isAddingReport ? <CreateReport onAddReport={handleAddReport}/> :
+      <>
+      <button className="px-6 py-2 mt-4 text-white bg-base/90 rounded-lg hover:bg-base"
+      onClick={()=> setIsAddingReport((isAddingReport) => !isAddingReport)}>Create Report</button>
       <DisplayReports reports={reports} onUpdateReport={handleUpdateReport} onDeleteReport={handleDeleteReport}/>
+      </>
+      
       }
       </div>
   )
