@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { MdDeleteOutline, MdOutlineEditNote } from "react-icons/md"
+import { AuthContext } from '../../context/AuthProvider'
 import EditReport from './EditReport'
 
 function ReportCard({report,onUpdateReport,onDeleteReport}) {
 
   const [isEditing, setIsEditing] = useState(false)
+  const { auth } = useContext(AuthContext)
 
   function handleDeleteReport(){
     fetch(`https://ireport-api.herokuapp.com/reports/${report.id}`,{
@@ -33,6 +35,7 @@ function ReportCard({report,onUpdateReport,onDeleteReport}) {
         }
         
       </div>
+      {auth ? <>
       <div className="px-6 pt-4 pb-2">
         <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><MdOutlineEditNote/></span>
@@ -41,6 +44,7 @@ function ReportCard({report,onUpdateReport,onDeleteReport}) {
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><MdDeleteOutline/></span>
         </button>
       </div>
+      </> : null}
     </div>
     </>
   )
