@@ -26,6 +26,9 @@ function Home() {
       </div>
     </div>
     <div className="my-6"></div>
+    <div className="flex justify-center p-3">
+      <h1 className="text-4xl text-base my-4">Current Reports</h1>
+    </div>
     <DisplayReports reports={allReports}/>
     </>
   )
