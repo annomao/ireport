@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from './context/AuthProvider'
+import { AuthContext } from '../context/AuthProvider'
 import Header from './Header'
 
 function Login() {
@@ -26,7 +26,6 @@ function Login() {
       .then((r) => {
         if(r.status === 403){
           setErrors("Incorrect email and/or password")
-          setEmail(""); setPassword("")
         }
         else{
           return r.json()
@@ -35,8 +34,9 @@ function Login() {
       .then(data => {
         localStorage.setItem("user", JSON.stringify(data))
         setAuth(data)
+        setEmail("")
+        setPassword("")
         navigate("/dashboard")
-        setEmail(""); setPassword("")
       })
   }
 

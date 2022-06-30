@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Header from './Header'
+import { AuthContext } from '../context/AuthProvider'
 
 function Home() {
+  const { setAuth } = useContext (AuthContext)
+
+  function getUser(){
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user){
+      setAuth(user)
+    }
+    else {
+      setAuth(null)
+    }
+  }
+  
+  useEffect(()=>{
+    getUser()
+  },[])
+
   return (
     <>
     <Header/>
