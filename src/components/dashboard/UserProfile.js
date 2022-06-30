@@ -4,18 +4,27 @@ import { FaRegUserCircle } from 'react-icons/fa'
 function UserProfile({user}) {
   return (
     <>
-    <div className="w-full md:w-3/12 md:mx-2">
-      <div className="bg-white p-3 border-t-4 border-green-400">
-        <div className="image overflow-hidden">
+    <div className="w-full md:w-3/12 md:mx-2 shadow-md shadow-cyan-500/50 ">
+      <div className="bg-white p-3 border-t-2 border-b-2 md:border-b-0 border-base text-center">
+        <div className="text-8xl text-gray-300 flex justify-center">
           <FaRegUserCircle/>
         </div>
-        <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">{user.username}</h1>
-        <h3 className="text-gray-600 font-lg text-semibold leading-6">{user.name}</h3>
-        <h3 className="text-gray-600 font-lg text-semibold leading-6">{user.email}</h3>
-        <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-          consectetur adipisicing elit.
-          Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+        <h1 className="text-gray-600 font-medium text-xl leading-8 my-2">
+          <span className="text-gray-500 font-normal text-lg mr-2">Username:</span>
+          {user.username}
+        </h1>
+        <h3 className="text-gray-600 font-medium text-xl leading-8 my-2">
+          <span className="text-gray-500 font-normal text-lg mr-2">Name:</span>
+          {user.name}
+          </h3>
+        <h3 className="text-gray-600 font-medium text-xl leading-8 my-2">
+          <span className="text-gray-500 font-normal text-lg mr-2">Email:</span>
+          {user.email}
+        </h3>
       </div>
+      <button
+        class="block w-full text-base text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+        Edit Profile</button>
     </div>
     </>
   )

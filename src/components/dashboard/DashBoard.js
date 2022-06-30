@@ -44,14 +44,14 @@ function DashBoard() {
 
         
         <div class="w-full md:w-9/12 mx-2 h-64">
-        <div class="bg-white p-3 shadow-sm rounded-sm">
+        <div class="bg-white p-3 shadow-md rounded-sm">
           {isAddingReport ? <CreateReport onAddReport={handleAddReport} isAddingReport={isAddingReport} setIsAddingReport={setIsAddingReport}/> :
           <>
-            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-              <button className="px-6 py-2 mt-4 text-white bg-base/90 rounded-lg hover:bg-base"
+            <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+              <button className="px-3 py-1 mt-4 text-white bg-base/90 rounded-lg hover:bg-base"
                 onClick={()=> setIsAddingReport((isAddingReport) => !isAddingReport)}>Create Report</button>
             </div>
-            <div class="text-gray-700">
+            <div className="text-gray-700">
               <DisplayReports reports={reports} onUpdateReport={handleUpdateReport} onDeleteReport={handleDeleteReport}/>
             </div>
           </>    
