@@ -3,23 +3,24 @@ import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-base p-4 fixed w-full z-10 top-0">
-		<div className="flex items-center flex-shrink-0 text-white mr-6">
-			<NavLink to="/" className="text-white no-underline hover:text-white hover:no-underline">
-				<span className="text-3xl pl-2">IReport</span>
-			</NavLink>
-		</div>
-
-		<div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
-			<ul className="list-reset lg:flex justify-end flex-1 items-center">
-				<li className="mr-3">
-					<NavLink to="/login" className="inline-block py-2 px-4 text-white no-underline hover:text-gray-400">Log In</NavLink>
-				</li>
-				<li className="mr-3">
-					<NavLink to="/register" className="inline-block no-underline text-white hover:text-gray-400 py-2 px-4">Sign Up</NavLink>
-				</li>
-			</ul>
-		</div>
-	</nav>
+		<>
+		<nav className="flex items-center justify-between flex-wrap bg-base p-6">
+      <div className="flex items-center flex-shrink-0 mr-6">
+        <NavLink to="/" className="font-bold text-5xl text-white">IReport</NavLink>
+      </div>
+      <div className="w-full block flex-grow md:flex md:items-center md:w-auto">
+        <div className="text-sm md:flex-grow">
+        </div>
+        <div>
+					<NavLink to="/login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-base hover:bg-white mt-4 mr-4 lg:mt-0">
+					Log In
+					</NavLink>
+					<NavLink to="/register" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-base hover:bg-white mt-4 lg:mt-0">
+					Sign Up
+					</NavLink>
+        </div>
+      </div>
+    </nav>
+		</>
   )
 }
