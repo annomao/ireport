@@ -10,7 +10,7 @@ function Login() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [errors, setErrors] = useState("")
+  const [errors, setErrors] = useState(null)
   const navigate = useNavigate()
   const {setAuth} = useContext(AuthContext)
 
@@ -28,12 +28,8 @@ function Login() {
       }),
     })
       .then((r) => {
-        if(r.status === 403){
-          setErrors("Incorrect email and/or password")
-        }
-        else{
-          return r.json()
-        }
+        if(r.ok) return r.json();
+        else throw new Error("Incorrect email and/or password");
       })
       .then(data => {
         localStorage.setItem("user", JSON.stringify(data))
@@ -41,6 +37,11 @@ function Login() {
         setEmail("")
         setPassword("")
         navigate("/dashboard")
+      })
+      .catch(error => {
+        setErrors("Incorrect email and/or password")
+        setEmail("")
+        setPassword("")
       })
   }
 
