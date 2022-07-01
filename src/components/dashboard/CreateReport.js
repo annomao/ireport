@@ -15,7 +15,7 @@ function CreateReport({onAddReport, isAddingReport, setIsAddingReport}) {
     e.preventDefault();
 
     if(!title || !location || !comment){
-      setErrors("You can not leave a page blank")
+      setErrors("You can not leave an input blank")
     }else{
 
     fetch(`https://ireport-api.herokuapp.com/reports`, {

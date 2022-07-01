@@ -65,7 +65,7 @@ function DashBoard() {
           {isAddingReport ? <CreateReport onAddReport={handleAddReport} isAddingReport={isAddingReport} setIsAddingReport={setIsAddingReport}/> :
           <>
             <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-              <button className="px-3 py-1 mt-4 mr-4 text-white bg-base/90 rounded-lg hover:bg-base"
+              <button className="px-3 py-1 mt-4 mr-4 text-base border border-base bg-white rounded-lg hover:text-white hover:bg-base/90"
                 onClick={()=> setIsAddingReport((isAddingReport) => !isAddingReport)}>Create Report</button>
               <label className="block text-base">Search</label>
               <input
